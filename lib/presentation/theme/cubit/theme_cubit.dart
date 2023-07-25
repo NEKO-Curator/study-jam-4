@@ -6,7 +6,7 @@ import 'package:surf_practice_magic_ball/presentation/theme/theme_enum.dart';
 ThemeCubit changeThemeCubit = ThemeCubit()..onDecideThemeChange();
 
 class ThemeCubit extends Cubit<ChangeThemeState> {
-  ThemeCubit() : super(ChangeThemeState.lightTheme(type: ThemeType.light));
+  ThemeCubit() : super(ChangeThemeState.lightTheme(type: ThemeType.dark));
 
   void changeToDarkTheme() {
     _saveOptionValue(1);
@@ -20,7 +20,6 @@ class ThemeCubit extends Cubit<ChangeThemeState> {
 
   void onDecideThemeChange() async {
     final optionValue = await getOption();
-    print("optionValue is $optionValue");
     if (optionValue == 0) {
       changeToLightTheme();
     } else if (optionValue == 1) {

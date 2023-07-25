@@ -22,9 +22,9 @@ class AppDarkTheme extends BaseTheme {
   ThemeData get darkTheme {
     final ThemeData base = ThemeData.dark();
     return base.copyWith(
+      useMaterial3: true,
       brightness: brightness,
-      scaffoldBackgroundColor: DarkThemeColors.black,
-      backgroundColor: DarkThemeColors.black,
+      //backgroundColor: DarkThemeColors.black,
     );
   }
 
@@ -43,5 +43,7 @@ class AppDarkTheme extends BaseTheme {
         AppColors.white: DarkThemeColors.black,
         AppColors.black: DarkThemeColors.white,
         AppColors.buttonTextColor: DarkThemeColors.buttonTextColor,
+        AppColors.gradientTop: DarkThemeColors.gradientTop,
+        AppColors.gradientBottom: DarkThemeColors.gradientBottom,
       };
 }

@@ -22,9 +22,9 @@ class AppLightTheme extends BaseTheme {
   ThemeData get lightTheme {
     final ThemeData base = ThemeData.light();
     return base.copyWith(
+      useMaterial3: true,
       brightness: brightness,
-      scaffoldBackgroundColor: LightThemeColors.white,
-      backgroundColor: LightThemeColors.white,
+      //backgroundColor: LightThemeColors.white,
     );
   }
 
@@ -43,5 +43,7 @@ class AppLightTheme extends BaseTheme {
         AppColors.white: LightThemeColors.white,
         AppColors.black: LightThemeColors.black,
         AppColors.buttonTextColor: LightThemeColors.buttonTextColor,
+        AppColors.gradientTop: LightThemeColors.gradientTop,
+        AppColors.gradientBottom: LightThemeColors.gradientBottom,
       };
 }

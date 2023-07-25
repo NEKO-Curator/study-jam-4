@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 
-/// Define your light theme colors
 class LightThemeColors {
   static const Color white = Colors.white;
   static const Color black = Colors.black;
   static const Color primaryColor = Colors.blue;
   static const Color accentColor = Colors.cyanAccent;
-  static const Color buttonTextColor = Colors.red;
+  static const Color buttonTextColor = Color(0xff6C698C);
+  static const Color gradientTop = Color(0xFFFFFFFF);
+  static const Color gradientBottom = Color(0xFFD3D3FF);
 }
 
-/// Define your dark theme colors
 class DarkThemeColors {
   static const Color white = Colors.white;
   static const Color black = Colors.black;
   static const Color primaryColor = Colors.green;
   static const Color accentColor = Colors.deepOrangeAccent;
-  static const Color buttonTextColor = Colors.yellow;
+  static const Color buttonTextColor = Color.fromARGB(1, 114, 114, 114);
+  static const Color gradientTop = Color(0xff100c2b);
+  static const Color gradientBottom = Color(0xff010104);
 }
 
-/// Define the key for color
-/// This will be use to access the color in UI.
-/// NOTE:- These key will be use for customColor map in AppLightTheme/AppDarkTheme class.
 class AppColors {
   static const String black = "black";
   static const String white = "white";
   static const String buttonTextColor = "buttonTextColor";
+  static const String gradientTop = "gradientTop";
+  static const String gradientBottom = "gradientBottom";
 }

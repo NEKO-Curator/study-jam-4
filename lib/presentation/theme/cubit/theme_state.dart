@@ -6,7 +6,7 @@ import 'package:equatable/equatable.dart';
 class ChangeThemeState extends Equatable {
   final ThemeData themeData;
   final ThemeType type;
-  bool isDarkTheme;
+  final bool isDarkTheme; //возможно придется поменять
   final Map<String, Color> customColors;
 
   ChangeThemeState({
