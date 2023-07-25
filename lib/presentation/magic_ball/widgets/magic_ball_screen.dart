@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:surf_practice_magic_ball/presentation/magic_ball/widgets/ball_widget.dart';
 
 class MagicBallScreen extends StatelessWidget {
   const MagicBallScreen({Key? key}) : super(key: key);
@@ -12,9 +13,9 @@ class MagicBallScreen extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 224.h,
+            height: 112.h,
           ),
-          Expanded(child: Text('Шар')),
+          BallWidget(),
           SizedBox(
             height: 64.h,
           ),

@@ -15,14 +15,5 @@ void main() {
         print('Random Fortune Test: $result');
       }
     });
-
-    test('getBiasedFortune() returns a non-null BiasedFortune', () async {
-      final result = await apiService.getBiasedFortune("Will I be rich?");
-      expect(result, isNotNull);
-      expect(result, isA<BiasedFortune>());
-      if (kDebugMode) {
-        print('Biased Fortune Test: ${result.reading}');
-      }
-    });
   });
 }

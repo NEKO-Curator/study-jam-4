@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:surf_practice_magic_ball/presentation/screen/magic_ball_screen.dart';
+import 'package:surf_practice_magic_ball/presentation/magic_ball/magic_ball_page.dart';
 import 'package:surf_practice_magic_ball/presentation/theme/cubit/theme_cubit.dart';
 import 'package:surf_practice_magic_ball/presentation/theme/cubit/theme_state.dart';
 import 'package:surf_practice_magic_ball/presentation/theme/theme_colors.dart';
@@ -14,60 +14,62 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ThemeCubit, ChangeThemeState>(
-      bloc: changeThemeCubit,
-      builder: (context, themeState) {
-        return ScreenUtilInit(
-          
-          minTextAdapt: true,
-          splitScreenMode: true,
-          builder: (BuildContext context, Widget? child) {
-            return MaterialApp(
-              title: 'shar',
-              theme: themeState.themeData,
-              home: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      themeState.customColors[AppColors.gradientTop] ??
-                          Colors.red,
-                      themeState.customColors[AppColors.gradientBottom] ??
-                          Colors.red,
-                    ],
-                    stops: const [
-                      //0.2,
-                      0,
-                      1,
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
+    return BlocProvider<ThemeCubit>(
+      create: (context) => ThemeCubit(),
+      child: BlocBuilder<ThemeCubit, ChangeThemeState>(
+        bloc: changeThemeCubit,
+        builder: (context, themeState) {
+          return ScreenUtilInit(
+            minTextAdapt: true,
+            splitScreenMode: true,
+            builder: (BuildContext context, Widget? child) {
+              return MaterialApp(
+                title: 'Magic ball',
+                theme: themeState.themeData,
+                home: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        themeState.customColors[AppColors.gradientTop] ??
+                            Colors.red,
+                        themeState.customColors[AppColors.gradientBottom] ??
+                            Colors.red,
+                      ],
+                      stops: const [
+                        //0.2,
+                        0,
+                        1,
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
                   ),
-                ),
-                child: Scaffold(
-                  extendBodyBehindAppBar: true,
-                  backgroundColor: Colors.transparent,
-                  appBar: AppBar(
+                  child: Scaffold(
+                    extendBodyBehindAppBar: true,
                     backgroundColor: Colors.transparent,
-                    elevation: 0,
-                    actions: [
-                      IconButton(
-                        onPressed: () async {
-                          await changeThemeCubit.getThemeType() ==
-                                  ThemeType.dark
-                              ? changeThemeCubit.changeToDarkTheme()
-                              : changeThemeCubit.changeToLightTheme();
-                        },
-                        icon: const Icon(Icons.settings),
-                      ),
-                    ],
+                    appBar: AppBar(
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      actions: [
+                        IconButton(
+                          onPressed: () async {
+                            await changeThemeCubit.getThemeType() ==
+                                    ThemeType.dark
+                                ? changeThemeCubit.changeToDarkTheme()
+                                : changeThemeCubit.changeToLightTheme();
+                          },
+                          icon: const Icon(Icons.settings),
+                        ),
+                      ],
+                    ),
+                    body: MagicBallPage(),
                   ),
-                  body: MagicBallScreen(),
                 ),
-              ),
-            );
-          },
-        );
-      },
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }
