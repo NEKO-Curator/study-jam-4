@@ -1,25 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:surf_practice_magic_ball/screen/magic_ball_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:surf_practice_magic_ball/app.dart';
+import 'common/utils/app_bloc_observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  Bloc.observer = AppBlocObserver();
   runApp(const MyApp());
-}
-
-/// App,s main widget.
-class MyApp extends StatelessWidget {
-  /// Constructor for [MyApp].
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MagicBallScreen(),
-    );
-  }
 }
